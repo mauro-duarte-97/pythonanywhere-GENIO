@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv # type: ignore
+# from dotenv import load_dotenv # type: ignore
 
 # Ruta del archivo .env
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
+# env_path = Path('.') / '.env'
+# load_dotenv(dotenv_path=env_path)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
-ALLOWED_HOSTS = [] #'7886-181-99-163-64.ngrok-free.app'
+ALLOWED_HOSTS =  [] #['MauroDuarte97.pythonanywhere.com']
 
 LOCAL_APPS = [
     'apps.auth_user',
@@ -53,9 +53,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
-] 
+]
     # 'django.contrib.sites','allauth.socialaccount','allauth.socialaccount.providers.google',
-    
+
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
@@ -156,14 +156,11 @@ LOGOUT_REDIRECT_URL = "/auth/login"
 LOGIN_URL = '/auth/login'
 
 
-
-
 # Uso de las variables de entorno
-DEBUG = os.getenv('DEBUG') == 'True'
-SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG =  os.getenv('DEBUG') == 'False' #os.getenv('DEBUG') == 'True'
+SECRET_KEY = os.getenv('SECRET_KEY') # 'django-insecure-(-acc@a&^9pe#-7v-^b1ii3evm!0sw&f2j*wz(7@c2)j5qewr$' 
 DATABASE_URL = os.getenv('DATABASE_URL')
-GOOGLE_API_KEY_1 = os.environ.get('GOOGLE_API_KEY')
-GOOGLE_API_KEY_2 = os.getenv('GOOGLE_API_KEY')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 DJANGO_GOOGLE_OAUTH2_CLIENT_ID = os.getenv('DJANGO_GOOGLE_OAUTH2_CLIENT_ID')
 DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET')
 DJANGO_GOOGLE_OAUTH2_PROJECT_ID = os.getenv('DJANGO_GOOGLE_OAUTH2_PROJECT_ID')
