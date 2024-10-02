@@ -29,17 +29,29 @@ function loadGoogleMaps() {
 //     window.myMap = map;
 // }
 
-function setLocation(coordinates) {
-    // Coordenadas se esperan en el formato "lat,long"
-    var gmap = document.getElementById("gmap");
-    console.log("La clave de la API es: ");
-    console.log(GOOGLE_API_KEY);
-    // Generar nueva URL para el mapa de Google Maps Embed API con las coordenadas
-    var newSrc = `https://www.google.com/maps/embed/v1/view?key=${GOOGLE_API_KEY}&center=${coordinates}&zoom=15`;
-    https://www.google.com/maps/embed/v1/view?key=${GOOGLE_API_KEY}&center=${coordinates}&zoom=15
+function setLocation(coordinates, iftsName) {
+
+
+    // Cambia la fuente del iframe con las coordenadas seleccionadas
+    var iframe = document.getElementById('gmap');
+    var gmapSrc = `https://www.google.com/maps/embed/v1/place?key=GOOGLE_API_KEY&q=${coordinates}`;
     
-    // Actualizar el src del iframe para cambiar la ubicación en el mapa
-    gmap.src = newSrc;
+    iframe.src = gmapSrc;
+    
+    // Mostrar una alerta o log con el nombre de la institución seleccionada (opcional)
+    console.log('Mostrando mapa de: ' + iftsName);
+    
+
+    // Coordenadas se esperan en el formato "lat,long"
+    // var gmap = document.getElementById("gmap");
+    // console.log("La clave de la API es: ");
+    // console.log(GOOGLE_API_KEY);
+    // // Generar nueva URL para el mapa de Google Maps Embed API con las coordenadas
+    // var newSrc = `https://www.google.com/maps/embed/v1/view?key=${GOOGLE_API_KEY}&center=${coordinates}&zoom=15`;
+    // https://www.google.com/maps/embed/v1/view?key=${GOOGLE_API_KEY}&center=${coordinates}&zoom=15
+    
+    // // Actualizar el src del iframe para cambiar la ubicación en el mapa
+    // gmap.src = newSrc;
 }
 
 // function setLocation(coordenadas) {

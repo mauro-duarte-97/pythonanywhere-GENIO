@@ -3,16 +3,16 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.edit import CreateView
 from apps.custom_user.models import CustomUser
 from django.views import View
-# from .models import AuthUserProfile
-from .forms import RegistrationForm
+from apps.institucion.models import Institucion
+from .forms import RegistrationForm, RegistrationFormStep2
 from django.contrib import messages
 import urllib.parse
 
-class RegisterUsuarioView(CreateView):
+class RegisterUsuarioViewStep2(CreateView):
     model = CustomUser
-    form_class = RegistrationForm
-    template_name = 'index.html'
-    success_url = '/auth/login'
+    form_class = RegistrationFormStep2
+    template_name = 'register.html'
+    success_url = '/auth/login/'
 
     def form_valid(self, form):
         # Procesar el formulario si es válido
@@ -26,6 +26,32 @@ class RegisterUsuarioView(CreateView):
             for error in errors:
                 messages.error(self.request, f"{field}: {error}")
         return super().form_invalid(form)
+
+class RegisterUsuarioView(CreateView):
+    model = CustomUser
+    form_class = RegistrationForm
+    template_name = 'index.html'
+    success_url = '/auth/register/step2/'
+
+    def form_valid(self, form):
+        # Procesar el formulario si es válido
+        user = form.save(commit=False)
+        user.save()
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        # Agregar mensajes de error a la lista de mensajes
+        for field, errors in form.errors.items():
+            for error in errors:
+                messages.error(self.request, f"{field}: {error}")
+        return super().form_invalid(form)
+    
+
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['instituciones'] = Institucion.objects.all()
+        return context
 
 class CustomLoginView(LoginView):
     template_name = 'index.html'  # Especifica el nombre del template de inicio de sesión

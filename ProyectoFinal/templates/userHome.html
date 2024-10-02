@@ -44,12 +44,12 @@
               
                  
                <div class="puntaje">
-                 <p class="Qualification"> {{ opinion.calificacion }}</p>
+                <p class="Qualification"> {{ opinion.calificacion }}</p>
                 <img src="{% static 'imagenes/Iconos/estrella.png' %}" alt="" style="height: 50px; width: 50px;">
                </div>
                 
 
-                <p>{{ opinion.fecha }}</p>                        
+                <p>{{ opinion.fecha }}</p>              
               </div>
               <div class="parrafoOpinion" >
                 <p>{{ opinion.contenido }}</p>
@@ -80,21 +80,29 @@
           <!-- Lista de botones para cada IFTS -->
           <ul class="lista">
             {% for ifts in instituciones %}
-              <li><button title="btn-coordenadas" class="iftsBtn" type="button" onclick="setLocation('{{ ifts.coordenadas }}')">{{ ifts.nombre }}</button></li>
+              <li>
+                <button 
+                  title="btn-coordenadas" 
+                  class="iftsBtn" 
+                  type="button" 
+                  onclick="setLocation('{{ ifts.coordenadas }}', '{{ ifts.nombre }}')">
+                  {{ ifts.nombre }}
+                </button>
+              </li>
             {% endfor %}
           </ul>
           
-          <div class="mapa">            
+          <div class="mapa">
             <iframe       
-            id="gmap" 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.5305788603177!2d-58.41747462264993!3d-34.59074255681599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca80e7682f0b%3A0xfbb9dca0f5c7f76c!2sI.F.T.S.%20N%C2%B0%2018!5e0!3m2!1ses!2sar!4v1713757667178!5m2!1ses!2sar"  
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade" 
-            title="GMAPS">
+              id="gmap" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.5305788603177!2d-58.41747462264993!3d-34.59074255681599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca80e7682f0b%3A0xfbb9dca0f5c7f76c!2sI.F.T.S.%20N%C2%B0%2018!5e0!3m2!1ses!2sar!4v1713757667178!5m2!1ses!2sar"  
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade" 
+              title="GMAPS">
             </iframe>
           </div>
-        
+
         </div>    
     </section>
 

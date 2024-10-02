@@ -34,9 +34,17 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ("email", "password1", "password2")
+        fields = ("email", "password1", "password2", "tipo_usuario")
 
 
+class RegistrationFormStep2(forms.ModelForm):  # Usamos ModelForm en lugar de UserCreationForm
+    nombreUser = forms.CharField(  # Cambiado a CharField en lugar de EmailField
+        max_length=254, help_text="Required"
+    )
+
+    class Meta:
+        model = CustomUser
+        fields = ("institucion", "genero", "fecha_de_nacimiento")
 # class CustomUserCreateForm(forms.ModelForm):
     # class Meta:
     #     model = CustomUser

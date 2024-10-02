@@ -127,12 +127,12 @@ html, body{
   height: 35px;
   width: 70%; 
   overflow: hidden;
-  background-color: #edf3f7; /* Utilizando !important */
+  background-color: #001826; /* Utilizando !important */
   border:none;
   box-shadow: none;
   outline: none;
-}
 
+}
 .formLogin input[type="email"],
 .formLogin input[type="password"]{
   font-size: 18px;
@@ -152,7 +152,7 @@ html, body{
 #registerForm  input[type="email"],
 #registerForm  input[type="password"]{
   font-size: 18px;
-  background-color: #edf3f7; /* Utilizando !important */
+  background-color: #001826; /* Utilizando !important */
   border:none;
   box-shadow: none;
   outline: none;
@@ -160,7 +160,7 @@ html, body{
 #registerForm  input[type="email"]:focus,
 #registerForm  input[type="password"]:focus{
   font-size: 18px;
-  background-color: #e6ecf0; /* Utilizando !important */
+  background-color: #001826; /* Utilizando !important */
   border:none;
   box-shadow: none;
   outline: none;

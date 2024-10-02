@@ -28,9 +28,30 @@
     margin-top: 20px;
 }
 
+#registerForm2{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40%;
+    align-items: center;
+    justify-content: space-between;
+    
+}
 
-h2,
-p,
+#registerForm2{
+    height:60%;
+}
+
+#registerForm2 input{
+    height: 35px;
+    width: 70%; 
+    overflow: hidden;
+    background-color: #edf3f7; /* Utilizando !important */
+    border:none;
+    box-shadow: none;
+    outline: none;
+}
+
 label {
     color: #000000;
 }
@@ -76,7 +97,6 @@ input[type="date"]:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
 }
 
 #genero{
